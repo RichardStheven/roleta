@@ -21,11 +21,15 @@ export default function Roleta() {
   }, [])
 
   return (
-    <div className="flex flex-col items-center mt-16">
-      <div className="w-[300px] h-[300px] border-[10px] border-gray-800 rounded-full relative" id="wheel">
-        <div className="absolute left-1/2 top-0 transform -translate-x-1/2 w-2 h-4 bg-red-500" />
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#005596] text-white px-4">
+      <div className="relative w-[300px] h-[300px] rounded-full border-[10px] border-yellow-400 bg-white" id="wheel">
+        <div className="absolute left-1/2 top-0 transform -translate-x-1/2 w-2 h-4 bg-red-500 z-10" />
       </div>
-      <p id="result" className="mt-6 text-xl font-bold text-green-700"></p>
+
+      <p
+        id="result"
+        className="mt-8 text-2xl font-bold text-yellow-300 transition-all duration-500 ease-in-out"
+      ></p>
     </div>
   )
 }

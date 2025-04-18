@@ -19,14 +19,25 @@ export default function Form() {
       whats,
     }
 
+    // 1. E-mail para o cliente com cupom
     emailjs.send(
-      'service_ym09oip', // service ID
-      'template_11jwdwh', // template ID
+      'service_ym09oip',
+      'template_11jwdwh', // Template do cliente
       templateParams,
-      'CL0gHHp3JdA3UdQsf' // public key
+      'CL0gHHp3JdA3UdQsf'
     )
-      .then(() => router.push('/roleta'))
-      .catch((err) => console.error('Erro ao enviar:', err))
+    
+    // 2. E-mail interno para Sekai com os dados
+    emailjs.send(
+      'service_ym09oip',
+      'template_2e4dvhb', // Troque pelo ID correto do template da Sekai se for diferente
+      templateParams,
+      'CL0gHHp3JdA3UdQsf'
+    )
+
+    // Redireciona após envio
+    .then(() => router.push('/roleta'))
+    .catch((err) => console.error('Erro ao enviar:', err))
   }
 
   return (
