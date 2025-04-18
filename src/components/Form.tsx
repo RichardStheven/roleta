@@ -41,9 +41,16 @@ export default function Form() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-8 bg-white border-4 border-yellow-400 shadow-lg rounded-lg w-full max-w-md">
-      <h1 className="text-2xl font-extrabold text-center text-gray-800">Ganhe seu cupom exclusivo!</h1>
-      <p className="text-center text-sm text-gray-600">Preencha os dados abaixo para participar</p>
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-4 p-8 bg-white border-4 border-yellow-400 shadow-lg rounded-lg w-full max-w-md"
+    >
+      <h1 className="text-2xl font-extrabold text-center text-gray-800">
+        Ganhe seu cupom exclusivo!
+      </h1>
+      <p className="text-center text-sm text-gray-600">
+        Preencha os dados abaixo para participar
+      </p>
 
       <input
         required
@@ -51,7 +58,7 @@ export default function Form() {
         placeholder="Seu nome"
         value={nome}
         onChange={(e) => setNome(e.target.value)}
-        className="border px-4 py-2 rounded focus:ring-2 focus:ring-yellow-400"
+        className="border px-4 py-2 rounded focus:ring-2 focus:ring-yellow-400 placeholder:text-gray-500"
       />
 
       <input
@@ -60,7 +67,7 @@ export default function Form() {
         placeholder="Seu e-mail"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="border px-4 py-2 rounded focus:ring-2 focus:ring-yellow-400"
+        className="border px-4 py-2 rounded focus:ring-2 focus:ring-yellow-400 placeholder:text-gray-500"
       />
 
       <input
@@ -69,10 +76,13 @@ export default function Form() {
         placeholder="WhatsApp com DDD"
         value={whats}
         onChange={(e) => setWhats(e.target.value)}
-        className="border px-4 py-2 rounded focus:ring-2 focus:ring-yellow-400"
+        className="border px-4 py-2 rounded focus:ring-2 focus:ring-yellow-400 placeholder:text-gray-500"
       />
 
-      <button type="submit" className="bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 px-4 rounded transition duration-300">
+      <button
+        type="submit"
+        className="bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 px-4 rounded transition duration-300"
+      >
         Quero meu cupom
       </button>
     </form>
