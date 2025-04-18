@@ -1,13 +1,11 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 import '@/styles/roleta.css'
 
 export default function RoletaPage() {
   const [girando, setGirando] = useState(true)
   const [mostrarCupom, setMostrarCupom] = useState(false)
-  const router = useRouter()
 
   useEffect(() => {
     const timeout = setTimeout(() => {
