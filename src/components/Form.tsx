@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 
 export default function Form() {
   const router = useRouter()
@@ -11,11 +12,21 @@ export default function Form() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!whats) {
-      alert('O número de WhatsApp é obrigatório!')
-      return
+
+    const templateParams = {
+      nome,
+      email,
+      whats,
     }
-    router.push('/roleta')
+
+    emailjs.send(
+      'service_ym09oip', // service ID
+      'template_11jwdwh', // template ID
+      templateParams,
+      'CL0gHHp3JdA3UdQsf' // public key
+    )
+      .then(() => router.push('/roleta'))
+      .catch((err) => console.error('Erro ao enviar:', err))
   }
 
   return (
