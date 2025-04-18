@@ -8,7 +8,6 @@ export default function RoletaPage() {
 
   useEffect(() => {
     const wheel = document.getElementById('wheel') as HTMLElement
-    const result = document.getElementById('result') as HTMLElement
 
     const rotation = 360 * 5 + 60 // sempre para no 5%
     wheel.style.transition = 'transform 4s ease-out'
