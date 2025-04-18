@@ -16,23 +16,26 @@ export default function Form() {
     const templateParams = { nome, email, whats }
 
     try {
-      console.log('Enviando via EmailJS...')
+      console.log('Enviando dados do cliente para a Sekai...')
 
-      const res1 = await emailjs.send(
+      // 1. Envia para a Sekai (template com linha verde)
+      await emailjs.send(
+        'service_ym09oip',
+        'template_tm6ixl8',
+        templateParams,
+        'CL0gHHp3JdA3UdQsf'
+      )
+
+      console.log('Enviando cupom para o cliente...')
+
+      // 2. Envia para o cliente com o cupom
+      await emailjs.send(
         'service_ym09oip',
         'template_11jwdwh',
         templateParams,
         'CL0gHHp3JdA3UdQsf'
       )
 
-      const res2 = await emailjs.send(
-        'service_ym09oip',
-        'template_2e4dvhb',
-        templateParams,
-        'CL0gHHp3JdA3UdQsf'
-      )
-
-      console.log('Emails enviados com sucesso:', res1.status, res2.status)
       router.push('/roleta')
     } catch (err) {
       console.error('Erro ao enviar EmailJS:', err)
